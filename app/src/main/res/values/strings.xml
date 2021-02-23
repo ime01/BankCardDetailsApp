@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BankCardDetailsApp</string>
+    <string name="search_hint">Enter the first 6-9 digits of your card</string>
+    <string name="search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="country">Country: </string>
+    <string name="num_length">Card Number Length: </string>
+    <string name="prepaid_or_postpaid">Prepaid or Postpaid: </string>
+    <string name="ok">OK</string>
+    <string name="not_found">Card Details Not Found, Check Digits And Try Again</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="check_connection">Please check your internet connection and try again</string>
+    <string name="no_digits">\"Please Enter The first 6-9 Digits of Your Card \"</string>
+    <string name="cardscheme">Card Scheme: </string>
+    <string name="cardtype">Card Type: </string>
+    <string name="bank_name">"Bank Name: "</string>
+    <string name="prepaid_yes">"Prepaid or Postpaid: Prepaid Card "</string>
+    <string name="prepaid_no">"Prepaid or Postpaid: PostPaid Card"</string>
+    <string name="user_placholder_image">User PlacHolder Image</string>
+</resources>
