@@ -1,6 +1,6 @@
 # BankCardDetailsApp
 
-A Financial Technology Application that utilizes the first 6-9 Digits of the users card to provides details about the card from https://binlist.net  Api
+A Financial Technology Application that utilizes the first 6-9 Digits of the user's card to provides details about the card from https://binlist.net  Api
 
 An app created for my job test exercise at Global Accelerex
 
