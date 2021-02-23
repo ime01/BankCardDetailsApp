@@ -58,6 +58,8 @@ class CardDetailsFragment : Fragment() {
                                 CardApiStatus.ERROR->{
                                     showSnackbar(card_scheme, getString(R.string.not_found))
                                     progress_bar.visibility = View.GONE
+                                    card_scheme.visibility = View.VISIBLE
+                                    card_scheme.setText(getString(R.string.not_found))
                                 }
                                 CardApiStatus.LOADING->{
                                     progress_bar.visibility = View.VISIBLE
@@ -107,10 +109,10 @@ class CardDetailsFragment : Fragment() {
             card_number_length.setText(getString(R.string.num_length) + cardDetails.number?.length.toString())
 
             prepaid_or_postpaid.apply {
-                if (cardDetails?.prepaid == true){
+                if (cardDetails.prepaid == true){
                    text = getString(R.string.prepaid_yes)
                 }else{
-                    if (cardDetails?.prepaid == false){
+                    if (cardDetails.prepaid == false){
                         text = getString(R.string.prepaid_no)
                     }
                 }

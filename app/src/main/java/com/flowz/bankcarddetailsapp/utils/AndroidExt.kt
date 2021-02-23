@@ -26,10 +26,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-fun showToast(string: String, context: Context){
-
-    Toast.makeText(context, string, Toast.LENGTH_LONG).show()
-}
 
 fun showSnackbar(view: View, string: String){
 
