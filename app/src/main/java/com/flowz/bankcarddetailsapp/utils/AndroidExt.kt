@@ -32,6 +32,19 @@ fun showSnackbar(view: View, string: String){
     Snackbar.make(view, string, Snackbar.LENGTH_LONG).show()
 }
 
+fun showViews(views:  Array<View>) {
+    views.forEach {
+        it.visibility = View.VISIBLE
+    }
+
+}
+
+fun hideViews(views: Array<View>) {
+    views.forEach {
+        it.visibility = View.INVISIBLE
+    }
+}
+
 @Suppress("DEPRECATION")
 fun getConnectionType(context: Context): Boolean {
     var result = false

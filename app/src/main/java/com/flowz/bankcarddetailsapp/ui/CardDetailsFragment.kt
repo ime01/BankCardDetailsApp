@@ -15,7 +15,9 @@ import com.flowz.bankcarddetailsapp.network.ApiServiceCall
 import com.flowz.bankcarddetailsapp.network.CardApiClient
 import com.flowz.bankcarddetailsapp.repository.CardRepository
 import com.flowz.printfuljobtask.utils.getConnectionType
+import com.flowz.printfuljobtask.utils.hideViews
 import com.flowz.printfuljobtask.utils.showSnackbar
+import com.flowz.printfuljobtask.utils.showViews
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_card_details.*
 
@@ -39,8 +41,10 @@ class CardDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val cardViews = arrayOf(  card_scheme, card_type, bank, country, prepaid_or_postpaid, card_number_length, user_image_placeholder)
 
         search_button.setOnClickListener {
+
 
             if (TextUtils.isEmpty(entered_numbers.text.toString())){
                 entered_numbers.setError(getString(R.string.no_digits))
@@ -63,23 +67,11 @@ class CardDetailsFragment : Fragment() {
                                 }
                                 CardApiStatus.LOADING->{
                                     progress_bar.visibility = View.VISIBLE
-                                    card_scheme.visibility = View.GONE
-                                    card_type.visibility = View.GONE
-                                    bank.visibility = View.GONE
-                                    country.visibility = View.GONE
-                                    prepaid_or_postpaid.visibility = View.GONE
-                                    card_number_length.visibility = View.GONE
-                                    user_image_placeholder.visibility = View.GONE
+                                    hideViews(cardViews)
                                 }
                                 CardApiStatus.DONE->{
                                     progress_bar.visibility = View.GONE
-                                    card_scheme.visibility =  View.VISIBLE
-                                    card_type.visibility =  View.VISIBLE
-                                    bank.visibility =  View.VISIBLE
-                                    country.visibility =  View.VISIBLE
-                                    prepaid_or_postpaid.visibility = View.VISIBLE
-                                    card_number_length.visibility =  View.VISIBLE
-                                    user_image_placeholder.visibility =  View.VISIBLE
+                                    showViews(cardViews)
                                     showCardData()
                                 }
                             }
@@ -95,6 +87,8 @@ class CardDetailsFragment : Fragment() {
                 }
             }
         }
+
+
     }
 
 
@@ -107,18 +101,19 @@ class CardDetailsFragment : Fragment() {
             bank.setText(getString(R.string.bank_name) + cardDetails.bank?.name)
             country.setText(getString(R.string.country) + cardDetails.country?.name)
             card_number_length.setText(getString(R.string.num_length) + cardDetails.number?.length.toString())
-
-            prepaid_or_postpaid.apply {
-                if (cardDetails.prepaid == true){
-                   text = getString(R.string.prepaid_yes)
+            
+            cardDetails.prepaid?.apply {
+                if (this){
+                    prepaid_or_postpaid.setText(getString(R.string.prepaid_yes))
                 }else{
-                    if (cardDetails.prepaid == false){
-                        text = getString(R.string.prepaid_no)
-                    }
+                    prepaid_or_postpaid.setText(getString(R.string.prepaid_no))
                 }
             }
+
+
         })
 
     }
+
 
 }
